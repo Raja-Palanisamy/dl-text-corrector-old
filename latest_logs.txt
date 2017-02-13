@@ -1,0 +1,3 @@
+2017-02-12 12:34:12,620 INFO - Preparing to run TaskInstance <TaskInstance: roger/example-proj:14 (id: e8ytyci2hrXrHe6MFqLkz9) (checksum: c35ece80bf9244d48804d675d1cecdb7) (last update: 2017-02-12 12:34:12.585091) [queued]>
+2017-02-12 12:34:12,634 INFO - Starting attempt 1 at 2017-02-12 12:34:12.624815
+

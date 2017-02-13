@@ -1,0 +1,72 @@
+2017-02-11 19:57:39,250 INFO - Preparing to run TaskInstance <TaskInstance: roger/example-proj:5 (id: PjRi3onaZx8wCLXMseamBL) (checksum: e0ca75957a6a04c4b7727a46912fb99d) (last update: 2017-02-11 19:57:39.210790) [queued]>
+2017-02-11 19:57:39,262 INFO - Starting attempt 1 at 2017-02-11 19:57:39.254359
+2017-02-11 19:57:41,145 INFO - checking for file at : /root/floyd/tmp/floyd_exec_p4gvprzo/code/floyd_requirements.txt
+2017-02-11 19:57:41,158 INFO - Command to execute : stdbuf -o0 sh command.sh
+2017-02-11 19:57:41,309 INFO - Starting container...
+2017-02-11 19:57:41,601 INFO - 
+################################################################################
+
+2017-02-11 19:57:41,601 INFO - Run Output:
+2017-02-11 19:57:42,081 INFO - I tensorflow/stream_executor/dso_loader.cc:128] successfully opened CUDA library libcublas.so locally
+2017-02-11 19:57:42,083 INFO - I tensorflow/stream_executor/dso_loader.cc:128] successfully opened CUDA library libcudnn.so locally
+2017-02-11 19:57:42,086 INFO - I tensorflow/stream_executor/dso_loader.cc:128] successfully opened CUDA library libcufft.so locally
+2017-02-11 19:57:42,087 INFO - I tensorflow/stream_executor/dso_loader.cc:128] successfully opened CUDA library libcuda.so.1 locally
+2017-02-11 19:57:42,089 INFO - I tensorflow/stream_executor/dso_loader.cc:128] successfully opened CUDA library libcurand.so locally
+2017-02-11 19:57:45,168 INFO - Training model.
+2017-02-11 19:57:45,171 INFO - Reading data; train = movie_dialog_train.txt, test = movie_dialog_val.txt
+2017-02-11 19:57:55,260 INFO - I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2017-02-11 19:57:55,262 INFO - I tensorflow/core/common_runtime/gpu/gpu_device.cc:885] Found device 0 with properties:
+2017-02-11 19:57:55,263 INFO - name: Tesla K80
+2017-02-11 19:57:55,263 INFO - major: 3 minor: 7 memoryClockRate (GHz) 0.8235
+2017-02-11 19:57:55,263 INFO - pciBusID 0000:00:1e.0
+2017-02-11 19:57:55,263 INFO - Total memory: 11.17GiB
+2017-02-11 19:57:55,264 INFO - Free memory: 11.11GiB
+2017-02-11 19:57:55,264 INFO - I tensorflow/core/common_runtime/gpu/gpu_device.cc:906] DMA: 0
+2017-02-11 19:57:55,264 INFO - I tensorflow/core/common_runtime/gpu/gpu_device.cc:916] 0:   Y
+2017-02-11 19:57:55,265 INFO - I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: Tesla K80, pci bus id: 0000:00:1e.0)
+2017-02-11 19:57:55,330 INFO - Creating 4 layers of 512 units.
+2017-02-11 19:59:50,623 INFO - WARNING:tensorflow:From /code/text_corrector_models.py:212 in __init__.: all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+2017-02-11 19:59:50,625 INFO - Instructions for updating:
+2017-02-11 19:59:50,625 INFO - Please use tf.global_variables instead.
+2017-02-11 19:59:50,729 INFO - Created model with fresh parameters.
+2017-02-11 19:59:50,730 INFO - WARNING:tensorflow:From correct_text.py:131 in create_model.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+2017-02-11 19:59:50,731 INFO - Instructions for updating:
+2017-02-11 19:59:50,731 INFO - Use `tf.global_variables_initializer` instead.
+2017-02-11 20:00:18,240 INFO - Training bucket sizes: [227236, 98018, 56668, 80194]
+2017-02-11 20:00:18,242 INFO - Total train size: 462116.0
+2017-02-11 20:00:20,077 INFO - I tensorflow/core/common_runtime/gpu/pool_allocator.cc:247] PoolAllocator: After 3735 get requests, put_count=1830 evicted_count=1000 eviction_rate=0.546448 and unsatisfied allocation rate=0.804552
+2017-02-11 20:00:20,078 INFO - I tensorflow/core/common_runtime/gpu/pool_allocator.cc:259] Raising pool_size_limit_ from 100 to 110
+2017-02-11 20:00:22,254 INFO - I tensorflow/core/common_runtime/gpu/pool_allocator.cc:247] PoolAllocator: After 0 get requests, put_count=1014 evicted_count=1000 eviction_rate=0.986193 and unsatisfied allocation rate=0
+2017-02-11 20:00:26,603 INFO - I tensorflow/core/common_runtime/gpu/pool_allocator.cc:247] PoolAllocator: After 0 get requests, put_count=6019 evicted_count=6000 eviction_rate=0.996843 and unsatisfied allocation rate=0
+2017-02-11 20:00:27,520 INFO - I tensorflow/core/common_runtime/gpu/pool_allocator.cc:247] PoolAllocator: After 2495 get requests, put_count=8741 evicted_count=8000 eviction_rate=0.915227 and unsatisfied allocation rate=0.711423
+2017-02-11 20:00:27,520 INFO - I tensorflow/core/common_runtime/gpu/pool_allocator.cc:259] Raising pool_size_limit_ from 233 to 256
+2017-02-11 20:00:28,474 INFO - I tensorflow/core/common_runtime/gpu/pool_allocator.cc:247] PoolAllocator: After 0 get requests, put_count=4030 evicted_count=4000 eviction_rate=0.992556 and unsatisfied allocation rate=0
+2017-02-11 20:00:29,432 INFO - I tensorflow/core/common_runtime/gpu/pool_allocator.cc:247] PoolAllocator: After 2495 get requests, put_count=2027 evicted_count=1000 eviction_rate=0.49334 and unsatisfied allocation rate=0.606012
+2017-02-11 20:00:29,432 INFO - I tensorflow/core/common_runtime/gpu/pool_allocator.cc:259] Raising pool_size_limit_ from 493 to 542
+2017-02-11 20:00:32,433 INFO - I tensorflow/core/common_runtime/gpu/pool_allocator.cc:247] PoolAllocator: After 0 get requests, put_count=2065 evicted_count=2000 eviction_rate=0.968523 and unsatisfied allocation rate=0
+2017-02-11 20:00:33,477 INFO - I tensorflow/core/common_runtime/gpu/pool_allocator.cc:247] PoolAllocator: After 0 get requests, put_count=2087 evicted_count=2000 eviction_rate=0.958313 and unsatisfied allocation rate=0
+2017-02-11 20:00:34,594 INFO - I tensorflow/core/common_runtime/gpu/pool_allocator.cc:247] PoolAllocator: After 0 get requests, put_count=2115 evicted_count=2000 eviction_rate=0.945626 and unsatisfied allocation rate=0
+2017-02-11 20:00:35,471 INFO - I tensorflow/core/common_runtime/gpu/pool_allocator.cc:247] PoolAllocator: After 0 get requests, put_count=5127 evicted_count=5000 eviction_rate=0.975229 and unsatisfied allocation rate=0
+2017-02-11 20:00:37,209 INFO - I tensorflow/core/common_runtime/gpu/pool_allocator.cc:247] PoolAllocator: After 0 get requests, put_count=1186 evicted_count=1000 eviction_rate=0.84317 and unsatisfied allocation rate=0
+2017-02-11 20:00:40,234 INFO - I tensorflow/core/common_runtime/gpu/pool_allocator.cc:247] PoolAllocator: After 0 get requests, put_count=2272 evicted_count=2000 eviction_rate=0.880282 and unsatisfied allocation rate=0
+2017-02-11 20:00:42,753 INFO - I tensorflow/core/common_runtime/gpu/pool_allocator.cc:247] PoolAllocator: After 0 get requests, put_count=2329 evicted_count=2000 eviction_rate=0.858738 and unsatisfied allocation rate=0
+2017-02-11 20:00:50,753 INFO - I tensorflow/core/common_runtime/gpu/pool_allocator.cc:247] PoolAllocator: After 0 get requests, put_count=3438 evicted_count=3000 eviction_rate=0.8726 and unsatisfied allocation rate=0
+2017-02-11 20:00:55,850 INFO - global step 100 learning rate 0.5000 step-time 0.37 perplexity 331.02
+2017-02-11 20:00:55,852 INFO - Traceback (most recent call last):
+2017-02-11 20:00:55,853 INFO - File "correct_text.py", line 438, in <module>
+2017-02-11 20:00:55,858 INFO - tf.app.run()
+2017-02-11 20:00:55,859 INFO - File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/platform/app.py", line 43, in run
+2017-02-11 20:00:55,859 INFO - sys.exit(main(sys.argv[:1] + flags_passthrough))
+2017-02-11 20:00:55,859 INFO - File "correct_text.py", line 434, in main
+2017-02-11 20:00:55,863 INFO - train(data_reader, FLAGS.train_path, FLAGS.val_path, FLAGS.model_path)
+2017-02-11 20:00:55,863 INFO - File "correct_text.py", line 206, in train
+2017-02-11 20:00:55,867 INFO - global_step=model.global_step)
+2017-02-11 20:00:55,868 INFO - File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/training/saver.py", line 1314, in save
+2017-02-11 20:00:55,868 INFO - "Parent directory of {} doesn't exist, can't save.".format(save_path))
+2017-02-11 20:00:55,869 INFO - ValueError: Parent directory of movie_dialog_model/translate.ckpt doesn't exist, can't save.
+2017-02-11 20:00:59,788 INFO - 
+################################################################################
+
+2017-02-11 20:00:59,788 INFO - Waiting for container to complete...
+2017-02-11 20:01:00,285 ERROR - [failed] Execution failed in 201 seconds for TaskInstance <TaskInstance: roger/example-proj:5 (id: PjRi3onaZx8wCLXMseamBL) (checksum: e0ca75957a6a04c4b7727a46912fb99d) (last update: 2017-02-11 20:01:00.266958) [failed]>
+

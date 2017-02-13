@@ -88,7 +88,7 @@ class DefaultMovieDialogConfig():
     buckets = [(10, 10), (15, 15), (20, 20), (40, 40)]
 
     steps_per_checkpoint = 100
-    max_steps = 20000
+    max_steps = 3000
 
     # The OOV resolution scheme used in decode() allows us to use a much smaller
     # vocabulary.
@@ -122,10 +122,19 @@ def create_model(session, forward_only, model_path, config=TestConfig()):
         use_lstm=config.use_lstm,
         forward_only=forward_only,
         config=config)
+    # new_saver = tf.train.import_meta_graph(model_path + "/translate.ckpt-1400.meta") #
+    print(tf.train.latest_checkpoint(model_path))
     ckpt = tf.train.get_checkpoint_state(model_path)
-    if ckpt and tf.gfile.Exists(ckpt.model_checkpoint_path):
+    print(ckpt)
+    # new_saver.restore(session, tf.train.latest_checkpoint(model_path + '/'))
+    # model.saver = new_saver
+    # return model
+    # print(model_path)
+    print(model.saver)
+    if ckpt: # and tf.gfile.Exists(ckpt.model_checkpoint_path):
         print("Reading model parameters from %s" % ckpt.model_checkpoint_path)
         model.saver.restore(session, ckpt.model_checkpoint_path)
+        print(model.saver)
     else:
         print("Created model with fresh parameters.")
         session.run(tf.initialize_all_variables())
@@ -410,21 +419,27 @@ def main(_):
 
     # Determine which kind of DataReader we want to use.
     if FLAGS.data_reader_type == "MovieDialogReader":
-        data_reader = MovieDialogReader(config, FLAGS.train_path)
+        data_reader = MovieDialogReader(config, FLAGS.test_path if FLAGS.decode else FLAGS.train_path)
     elif FLAGS.data_reader_type == "PTBDataReader":
         data_reader = PTBDataReader(config, FLAGS.train_path)
     else:
-        raise ValueError("data_reader_type argument not recognized; must be "
-                         "one of: MovieDialogReader, PTBDataReader")
-
+        raise ValueError("data_reader_type argument %s not recognized; must be "
+                         "one of: MovieDialogReader, PTBDataReader" % FLAGS.data_reader_type)
+    with tf.Session() as session:
+    	model = create_model(session, True, FLAGS.model_path, config=config)
+        print("Enter a sentence:   ")
+    	decode_sentence(session, model=model, data_reader=data_reader, sentence=raw_input())
+    
+    """
     if FLAGS.decode:
         # Decode test sentences.
         with tf.Session() as session:
             model = create_model(session, True, FLAGS.model_path, config=config)
             print("Loaded model. Beginning decoding.")
             decodings = decode(session, model=model, data_reader=data_reader,
-                               data_to_decode=data_reader.read_tokens(
-                                   FLAGS.test_path), verbose=False)
+                               data_to_decode=[["He", "came", "from", "their"]], #data_reader.read_tokens(
+                                   #FLAGS.test_path), 
+			       verbose=False)
             # Write the decoded tokens to stdout.
             for tokens in decodings:
                 print(" ".join(tokens))
@@ -432,7 +447,7 @@ def main(_):
     else:
         print("Training model.")
         train(data_reader, FLAGS.train_path, FLAGS.val_path, FLAGS.model_path)
-
+    """
 
 if __name__ == "__main__":
     tf.app.run()

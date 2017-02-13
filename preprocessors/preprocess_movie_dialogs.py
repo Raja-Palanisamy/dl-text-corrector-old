@@ -7,7 +7,7 @@ tf.app.flags.DEFINE_string("out_file", "", "File to write preprocessed data "
                                            "to.")
 
 FLAGS = tf.app.flags.FLAGS
-
+nltk.download('punkt')
 
 def main(_):
     with open(FLAGS.raw_data, "r") as raw_data, \
